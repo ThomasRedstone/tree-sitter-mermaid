@@ -1,0 +1,79 @@
+==================
+Simple C4 Context Diagram
+==================
+
+C4Context
+    Person(customer, "Customer", "A user of the system")
+    System(webApp, "Web Application", "Main application")
+    Rel(customer, webApp, "Uses")
+
+---
+
+(source_file
+  (diagram_c4
+    (c4_person
+      (alias)
+      (label)
+      (descr))
+    (c4_system
+      (alias)
+      (label)
+      (descr))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))))
+
+==================
+C4 Container Diagram
+==================
+
+C4Container
+    Container(webApp, "Web Application", "React", "Frontend UI")
+    ContainerDb(database, "Database", "PostgreSQL", "Stores user data")
+    Rel(webApp, database, "Reads/Writes")
+
+---
+
+(source_file
+  (diagram_c4
+    (c4_container
+      (alias)
+      (label)
+      (arg)
+      (arg))
+    (c4_container
+      (alias)
+      (label)
+      (arg)
+      (arg))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))))
+
+==================
+C4 with Boundary
+==================
+
+C4Context
+    Person(user, "User", "End user")
+    Enterprise_Boundary(enterprise, "Enterprise") {
+        System(app, "Application", "Main app")
+    }
+
+---
+
+(source_file
+  (diagram_c4
+    (c4_person
+      (alias)
+      (label)
+      (descr))
+    (c4_stmt_boundary
+      (alias)
+      (label)
+      (c4_system
+        (alias)
+        (label)
+        (descr)))))

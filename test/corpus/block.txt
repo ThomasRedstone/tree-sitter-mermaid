@@ -1,0 +1,83 @@
+==================
+Simple Block Diagram
+==================
+
+block-beta
+    columns 3
+    a["Block A"]
+    b["Block B"]
+    c["Block C"]
+
+---
+
+(source_file
+  (diagram_block
+    (block_stmt_columns
+      (block_columns))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))))
+
+==================
+Block Diagram with Arrows
+==================
+
+block-beta
+    a["Start"]
+    b["Process"]
+    c["End"]
+    a --> b
+    b --> c
+
+---
+
+(source_file
+  (diagram_block
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_arrow
+      (block_id)
+      (block_id))
+    (block_stmt_arrow
+      (block_id)
+      (block_id))))
+
+==================
+Block Diagram with Width
+==================
+
+block-beta
+    columns 4
+    a["Wide Block"]:2
+    b["Narrow"]
+    c["Another"]
+
+---
+
+(source_file
+  (diagram_block
+    (block_stmt_columns
+      (block_columns))
+    (block_stmt_block
+      (block_id)
+      (block_text)
+      (block_columns))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))))

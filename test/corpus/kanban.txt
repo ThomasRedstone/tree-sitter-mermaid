@@ -1,0 +1,79 @@
+==================
+Simple Kanban Board
+==================
+
+kanban
+todo[To Do]
+inprogress[In Progress]
+done[Done]
+
+---
+
+(source_file
+  (diagram_kanban
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))))
+
+==================
+Kanban with Tasks
+==================
+
+kanban
+todo[To Do]
+    task1[Write documentation]
+    task2[Fix bug]
+done[Done]
+    task3[Setup project]
+
+---
+
+(source_file
+  (diagram_kanban
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_task
+      (task_id)
+      (task_title))
+    (kanban_task
+      (task_id)
+      (task_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_task
+      (task_id)
+      (task_title))))
+
+==================
+Kanban with Metadata
+==================
+
+kanban
+todo[To Do]
+    task1[Important task] @{priority: "High", assigned: "Alice"}
+
+---
+
+(source_file
+  (diagram_kanban
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_task
+      (task_id)
+      (task_title)
+      (kanban_metadata
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))))))

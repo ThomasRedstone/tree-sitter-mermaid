@@ -1,0 +1,102 @@
+==================
+Simple Requirement Diagram
+==================
+
+requirementDiagram
+    requirement test_req {
+    id: 1
+    text: "the test text"
+    risk: High
+    verifymethod: Test
+    }
+
+---
+
+(source_file
+  (diagram_requirement
+    (requirement_stmt_requirement
+      (name)
+      (requirement_body_stmt
+        (id))
+      (requirement_body_stmt
+        (text))
+      (requirement_body_stmt)
+      (requirement_body_stmt))))
+
+==================
+Requirement with Element
+==================
+
+requirementDiagram
+    requirement user_login {
+    id: REQ-001
+    text: "User must be able to login"
+    risk: Medium
+    verifymethod: Demonstration
+    }
+    element login_form {
+    type: UI Component
+    docref: design/login.md
+    }
+
+---
+
+(source_file
+  (diagram_requirement
+    (requirement_stmt_requirement
+      (name)
+      (requirement_body_stmt
+        (id))
+      (requirement_body_stmt
+        (text))
+      (requirement_body_stmt)
+      (requirement_body_stmt))
+    (requirement_stmt_element
+      (name)
+      (element_body_stmt
+        (type))
+      (element_body_stmt
+        (docref)))))
+
+==================
+Requirement with Relationship
+==================
+
+requirementDiagram
+    functionalRequirement auth_req {
+    id: FR-001
+    text: "Authentication required"
+    risk: High
+    verifymethod: Analysis
+    }
+    designConstraint security_constraint {
+    id: DC-001
+    text: "Must use encryption"
+    risk: Low
+    verifymethod: Inspection
+    }
+    auth_req - derives -> security_constraint
+
+---
+
+(source_file
+  (diagram_requirement
+    (requirement_stmt_requirement
+      (name)
+      (requirement_body_stmt
+        (id))
+      (requirement_body_stmt
+        (text))
+      (requirement_body_stmt)
+      (requirement_body_stmt))
+    (requirement_stmt_requirement
+      (name)
+      (requirement_body_stmt
+        (id))
+      (requirement_body_stmt
+        (text))
+      (requirement_body_stmt)
+      (requirement_body_stmt))
+    (requirement_stmt_relation
+      (source)
+      (target))))

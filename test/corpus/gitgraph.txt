@@ -1,0 +1,95 @@
+==================
+Simple GitGraph
+==================
+
+gitGraph
+    commit
+    commit
+    branch develop
+    checkout develop
+    commit
+    commit
+    checkout main
+    merge develop
+
+---
+
+(source_file
+  (diagram_gitgraph
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_merge
+      (gitgraph_branch_name))))
+
+==================
+GitGraph with Options
+==================
+
+gitGraph
+    commit id: "initial"
+    commit id: "second" tag: "v1.0"
+    branch feature
+    checkout feature
+    commit id: "feat1" type: HIGHLIGHT
+    checkout main
+    merge feature id: "merge1" tag: "v1.1"
+
+---
+
+(source_file
+  (diagram_gitgraph
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id))
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id)
+      (gitgraph_commit_tag))
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id)
+      (commit_type))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_merge
+      (gitgraph_branch_name)
+      (gitgraph_commit_id)
+      (gitgraph_commit_tag))))
+
+==================
+GitGraph Cherry-Pick
+==================
+
+gitGraph
+    commit id: "abc123"
+    branch feature
+    checkout feature
+    commit id: "def456"
+    checkout main
+    cherry-pick id: "def456"
+
+---
+
+(source_file
+  (diagram_gitgraph
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id))
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_cherrypick
+      (gitgraph_commit_id))))

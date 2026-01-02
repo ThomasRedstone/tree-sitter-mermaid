@@ -1,0 +1,60 @@
+==================
+Simple User Journey
+==================
+
+journey
+    title My working day
+    section Go to work
+    Make tea: 5: Me
+    Go upstairs: 3: Me, Cat
+
+---
+
+(source_file
+  (diagram_journey
+    (journey_stmt_title
+      (title))
+    (journey_stmt_section
+      (section_name))
+    (journey_stmt_task
+      (task_name)
+      (actors))
+    (journey_stmt_task
+      (task_name)
+      (actors))))
+
+==================
+User Journey with Multiple Sections
+==================
+
+journey
+    title Shopping experience
+    section Browse Products
+    View catalog: 5: Customer
+    Search item: 4: Customer
+    section Checkout
+    Add to cart: 5: Customer
+    Pay: 3: Customer, System
+
+---
+
+(source_file
+  (diagram_journey
+    (journey_stmt_title
+      (title))
+    (journey_stmt_section
+      (section_name))
+    (journey_stmt_task
+      (task_name)
+      (actors))
+    (journey_stmt_task
+      (task_name)
+      (actors))
+    (journey_stmt_section
+      (section_name))
+    (journey_stmt_task
+      (task_name)
+      (actors))
+    (journey_stmt_task
+      (task_name)
+      (actors))))

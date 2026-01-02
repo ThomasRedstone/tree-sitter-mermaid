@@ -121,6 +121,72 @@ const tokens = {
 
     // tokens in mindmap diagram
     _mindmap_text: /[^(){}\[\]\n\r]+/,
+
+    /// tokens in user journey diagram
+    journey_task_name: /[^:\n;]+/,
+    journey_task_score: /[0-5]/,
+    journey_actors: /[^:\n;]+/,
+
+    /// tokens in quadrant chart
+    quadrant_title: /[^\n;]+/,
+    quadrant_x_axis: /[^\n;\-]+/,
+    quadrant_y_axis: /[^\n;\-]+/,
+    quadrant_label: /[^\n;:]+/,
+    quadrant_point_value: /\[[\s]*[\d]*\.?[\d]+[\s]*,[\s]*[\d]*\.?[\d]+[\s]*\]/,
+
+    /// tokens in requirement diagram
+    requirement_text: /"[^"]*"/,
+    requirement_id: /[^:\n;{}]+/,
+    requirement_name: /[^\n;{}<>]+/,
+
+    /// tokens in gitgraph diagram
+    gitgraph_commit_id: /"[^"]+"/,
+    gitgraph_commit_tag: /"[^"]+"/,
+    gitgraph_branch_name: /[a-zA-Z0-9_\-\/\.]+/,
+
+    /// tokens in timeline diagram
+    timeline_title: /[^\n;:]+/,
+    timeline_period: /[^:\n;]+/,
+    timeline_event: /[^:\n;]+/,
+
+    /// tokens in C4 diagram
+    c4_alias: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    c4_label: /"[^"]*"/,
+    c4_descr: /"[^"]*"/,
+    c4_techn: /"[^"]*"/,
+    c4_sprite: /[a-zA-Z0-9_]+/,
+
+    /// tokens in sankey diagram
+    sankey_source: /[^,\n"]+|"[^"]*"/,
+    sankey_target: /[^,\n"]+|"[^"]*"/,
+    sankey_value: /[\d]+\.?[\d]*/,
+
+    /// tokens in XY chart
+    xychart_title: /"[^"]*"|[^\n;]+/,
+    xychart_number: /[\-]?[\d]*\.?[\d]+/,
+
+    /// tokens in block diagram
+    block_id: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    block_label: /"[^"]*"/,
+    block_columns: /\d+/,
+
+    /// tokens in packet diagram
+    packet_range: /\d+(-\d+)?/,
+    packet_plus_bits: /\+\d+/,
+    packet_field_name: /"[^"]*"/,
+
+    /// tokens in kanban diagram
+    kanban_column_id: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    kanban_task_id: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    kanban_title: /\[[^\]]+\]/,
+    kanban_metadata_key: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    kanban_metadata_value: /"[^"]*"|[^,}]+/,
+
+    /// tokens in architecture diagram
+    architecture_id: /[a-zA-Z_][a-zA-Z0-9_]*/,
+    architecture_icon: /[a-zA-Z_][a-zA-Z0-9_:\-]*/,
+    architecture_label: /\[[^\]]+\]/,
+    architecture_side: /[TBLR]/,
 }
 
 const tokensFunc = Object.fromEntries(
@@ -149,6 +215,18 @@ module.exports = grammar({
         $._pie_stmt,
         $._flow_stmt,
         $._er_stmt,
+        $._journey_stmt,
+        $._quadrant_stmt,
+        $._requirement_stmt,
+        $._gitgraph_stmt,
+        $._timeline_stmt,
+        $._c4_stmt,
+        $._sankey_stmt,
+        $._xychart_stmt,
+        $._block_stmt,
+        $._packet_stmt,
+        $._kanban_stmt,
+        $._architecture_stmt,
 
         $._class_reltype,
         $._class_linetype,
@@ -158,6 +236,12 @@ module.exports = grammar({
         $._er_cardinarity,
         $._er_reltype,
         $._er_attribute_key_type,
+        $._requirement_type,
+        $._requirement_risk,
+        $._requirement_verifymethod,
+        $._requirement_relationship,
+        $._gitgraph_commit_type,
+        $._c4_element,
     ],
 
     rules: {
@@ -174,6 +258,18 @@ module.exports = grammar({
                 $.diagram_flow,
                 $.diagram_er,
                 $.diagram_mindmap,
+                $.diagram_journey,
+                $.diagram_quadrant,
+                $.diagram_requirement,
+                $.diagram_gitgraph,
+                $.diagram_timeline,
+                $.diagram_c4,
+                $.diagram_sankey,
+                $.diagram_xychart,
+                $.diagram_block,
+                $.diagram_packet,
+                $.diagram_kanban,
+                $.diagram_architecture,
         )),
 
         directive: $ => seq(
@@ -779,6 +875,632 @@ module.exports = grammar({
         mmap_class: _ => seq(/\n?\s*:::/, /[_a-zA-Z0-9- ]+/),
         // experimental icon https://mermaid.js.org/syntax/mindmap.html#icons
         mmap_icon: _ => seq(/\n?\s*::icon\(/, /[^)\n\r]+/, ")"),
+
+        /// User Journey diagram
+        diagram_journey: $ => seq(
+            kwd("journey"),
+            $._newline,
+            repeat(choice($._journey_stmt, $._newline)),
+        ),
+
+        _journey_stmt: $ => choice(
+            $.journey_stmt_title,
+            $.journey_stmt_section,
+            $.journey_stmt_task,
+        ),
+
+        journey_stmt_title: $ => prec(1, seq(
+            kwd("title"), alias(/[^\n;]+/, $.title),
+        )),
+
+        journey_stmt_section: $ => prec(1, seq(
+            kwd("section"), alias(/[^\n;]+/, $.section_name),
+        )),
+
+        journey_stmt_task: $ => seq(
+            alias(/[a-zA-Z][^:\n;]*/, $.task_name),
+            ":",
+            /[0-5]/,
+            ":",
+            alias(/[^\n;]+/, $.actors),
+        ),
+
+        /// Quadrant Chart diagram
+        diagram_quadrant: $ => seq(
+            kwd("quadrantChart"),
+            $._newline,
+            repeat(choice($._quadrant_stmt, $._newline)),
+        ),
+
+        _quadrant_stmt: $ => choice(
+            $.quadrant_stmt_title,
+            $.quadrant_stmt_x_axis,
+            $.quadrant_stmt_y_axis,
+            $.quadrant_stmt_quadrant,
+            $.quadrant_stmt_point,
+        ),
+
+        quadrant_stmt_title: $ => prec(1, seq(
+            kwd("title"), alias(/[^\n;]+/, $.title),
+        )),
+
+        quadrant_stmt_x_axis: $ => prec(1, seq(
+            kwd("x-axis"),
+            alias(/[^\n;\-]+/, $.axis_left),
+            optional(seq("-->", alias(/[^\n;]+/, $.axis_right))),
+        )),
+
+        quadrant_stmt_y_axis: $ => prec(1, seq(
+            kwd("y-axis"),
+            alias(/[^\n;\-]+/, $.axis_bottom),
+            optional(seq("-->", alias(/[^\n;]+/, $.axis_top))),
+        )),
+
+        quadrant_stmt_quadrant: $ => prec(1, seq(
+            choice(kwd("quadrant-1"), kwd("quadrant-2"), kwd("quadrant-3"), kwd("quadrant-4")),
+            alias(/[^\n;:]+/, $.quadrant_name),
+        )),
+
+        quadrant_stmt_point: $ => seq(
+            alias(/[a-zA-Z][^\n;:]*/, $.point_name),
+            ":",
+            /\[[\s]*[\d]*\.?[\d]+[\s]*,[\s]*[\d]*\.?[\d]+[\s]*\]/,
+        ),
+
+        /// Requirement Diagram
+        diagram_requirement: $ => seq(
+            kwd("requirementDiagram"),
+            $._newline,
+            repeat(choice($._requirement_stmt, $._newline)),
+        ),
+
+        _requirement_stmt: $ => choice(
+            $.requirement_stmt_requirement,
+            $.requirement_stmt_element,
+            $.requirement_stmt_relation,
+        ),
+
+        _requirement_type: $ => prec(1, choice(
+            kwd("requirement"),
+            kwd("functionalRequirement"),
+            kwd("interfaceRequirement"),
+            kwd("performanceRequirement"),
+            kwd("physicalRequirement"),
+            kwd("designConstraint"),
+        )),
+
+        _requirement_risk: $ => choice(
+            kwd("Low"),
+            kwd("Medium"),
+            kwd("High"),
+        ),
+
+        _requirement_verifymethod: $ => choice(
+            kwd("Analysis"),
+            kwd("Inspection"),
+            kwd("Test"),
+            kwd("Demonstration"),
+        ),
+
+        requirement_stmt_requirement: $ => seq(
+            $._requirement_type,
+            alias(/[^\n;{}<>]+/, $.name),
+            "{",
+            $._newline,
+            repeat($.requirement_body_stmt),
+            "}",
+        ),
+
+        requirement_body_stmt: $ => seq(
+            choice(
+                seq(kwd("id"), ":", alias(/[^:\n;{}]+/, $.id)),
+                seq(kwd("text"), ":", alias(/"[^"]*"/, $.text)),
+                seq(kwd("risk"), ":", $._requirement_risk),
+                seq(kwd("verifymethod"), ":", $._requirement_verifymethod),
+            ),
+            $._newline,
+        ),
+
+        requirement_stmt_element: $ => seq(
+            kwd("element"),
+            alias(/[^\n;{}<>]+/, $.name),
+            "{",
+            $._newline,
+            repeat($.element_body_stmt),
+            "}",
+        ),
+
+        element_body_stmt: $ => seq(
+            choice(
+                seq(kwd("type"), ":", alias(/[^:\n;{}]+/, $.type)),
+                seq(kwd("docref"), ":", alias(/[^:\n;{}]+/, $.docref)),
+            ),
+            $._newline,
+        ),
+
+        _requirement_relationship: $ => choice(
+            kwd("contains"),
+            kwd("copies"),
+            kwd("derives"),
+            kwd("satisfies"),
+            kwd("verifies"),
+            kwd("refines"),
+            kwd("traces"),
+        ),
+
+        requirement_stmt_relation: $ => prec(-1, choice(
+            seq(
+                alias(/[a-zA-Z][^\n;{}<>\-]+/, $.source),
+                "-",
+                $._requirement_relationship,
+                "->",
+                alias(/[^\n;{}<>]+/, $.target),
+            ),
+            seq(
+                alias(/[a-zA-Z][^\n;{}<>\-]+/, $.target),
+                "<-",
+                $._requirement_relationship,
+                "-",
+                alias(/[^\n;{}<>]+/, $.source),
+            ),
+        )),
+
+        /// GitGraph diagram
+        diagram_gitgraph: $ => seq(
+            choice(kwd("gitGraph"), kwd("gitgraph")),
+            optional(choice(kwd("LR:"), kwd("TB:"), kwd("BT:"))),
+            $._newline,
+            repeat(choice($._gitgraph_stmt, $._newline)),
+        ),
+
+        _gitgraph_stmt: $ => choice(
+            $.gitgraph_stmt_commit,
+            $.gitgraph_stmt_branch,
+            $.gitgraph_stmt_checkout,
+            $.gitgraph_stmt_merge,
+            $.gitgraph_stmt_cherrypick,
+        ),
+
+        _gitgraph_commit_type: $ => alias(/NORMAL|REVERSE|HIGHLIGHT/, $.commit_type),
+
+        gitgraph_stmt_commit: $ => seq(
+            kwd("commit"),
+            repeat(choice(
+                seq(kwd("id"), ":", $.gitgraph_commit_id),
+                seq(kwd("msg"), ":", $.gitgraph_commit_id),
+                seq(kwd("tag"), ":", $.gitgraph_commit_tag),
+                seq(kwd("type"), ":", $._gitgraph_commit_type),
+            )),
+        ),
+
+        gitgraph_stmt_branch: $ => seq(
+            kwd("branch"),
+            $.gitgraph_branch_name,
+            optional(seq(kwd("order"), ":", /\d+/)),
+        ),
+
+        gitgraph_stmt_checkout: $ => seq(
+            kwd("checkout"),
+            $.gitgraph_branch_name,
+        ),
+
+        gitgraph_stmt_merge: $ => seq(
+            kwd("merge"),
+            $.gitgraph_branch_name,
+            repeat(choice(
+                seq(kwd("id"), ":", $.gitgraph_commit_id),
+                seq(kwd("tag"), ":", $.gitgraph_commit_tag),
+                seq(kwd("type"), ":", $._gitgraph_commit_type),
+            )),
+        ),
+
+        gitgraph_stmt_cherrypick: $ => seq(
+            kwd("cherry-pick"),
+            kwd("id"), ":",
+            $.gitgraph_commit_id,
+            optional(seq(kwd("parent"), ":", $.gitgraph_commit_id)),
+        ),
+
+        /// Timeline diagram
+        diagram_timeline: $ => seq(
+            kwd("timeline"),
+            $._newline,
+            repeat(choice($._timeline_stmt, $._newline)),
+        ),
+
+        _timeline_stmt: $ => choice(
+            $.timeline_stmt_title,
+            $.timeline_stmt_section,
+            $.timeline_stmt_event,
+        ),
+
+        timeline_stmt_title: $ => prec(1, seq(
+            kwd("title"), alias(/[^\n;]+/, $.title),
+        )),
+
+        timeline_stmt_section: $ => prec(1, seq(
+            kwd("section"), alias(/[^\n;]+/, $.section_name),
+        )),
+
+        timeline_stmt_event: $ => seq(
+            alias(/[a-zA-Z0-9][^:\n;]*/, $.period),
+            repeat1(seq(":", alias(/[^:\n;]+/, $.event))),
+        ),
+
+        /// C4 Diagram
+        diagram_c4: $ => seq(
+            choice(
+                kwd("C4Context"),
+                kwd("C4Container"),
+                kwd("C4Component"),
+                kwd("C4Dynamic"),
+                kwd("C4Deployment"),
+            ),
+            $._newline,
+            repeat(choice($._c4_stmt, $._newline)),
+        ),
+
+        _c4_stmt: $ => choice(
+            $._c4_element,
+            $.c4_stmt_boundary,
+            $.c4_stmt_rel,
+            $.c4_stmt_update_style,
+            $.c4_stmt_update_layout,
+        ),
+
+        _c4_element: $ => choice(
+            $.c4_person,
+            $.c4_system,
+            $.c4_container,
+            $.c4_component,
+            $.c4_node,
+        ),
+
+        c4_person: $ => seq(
+            choice(kwd("Person"), kwd("Person_Ext")),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.alias),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            optional(seq(",", alias(/"[^"]*"/, $.descr))),
+            ")",
+        ),
+
+        c4_system: $ => seq(
+            choice(
+                kwd("System"),
+                kwd("System_Ext"),
+                kwd("SystemDb"),
+                kwd("SystemDb_Ext"),
+                kwd("SystemQueue"),
+                kwd("SystemQueue_Ext"),
+            ),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.alias),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            optional(seq(",", alias(/"[^"]*"/, $.descr))),
+            ")",
+        ),
+
+        c4_container: $ => seq(
+            choice(
+                kwd("Container"),
+                kwd("Container_Ext"),
+                kwd("ContainerDb"),
+                kwd("ContainerDb_Ext"),
+                kwd("ContainerQueue"),
+                kwd("ContainerQueue_Ext"),
+            ),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.alias),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            repeat(seq(",", alias(/"[^"]*"/, $.arg))),
+            ")",
+        ),
+
+        c4_component: $ => seq(
+            choice(
+                kwd("Component"),
+                kwd("Component_Ext"),
+                kwd("ComponentDb"),
+                kwd("ComponentDb_Ext"),
+                kwd("ComponentQueue"),
+                kwd("ComponentQueue_Ext"),
+            ),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.alias),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            repeat(seq(",", alias(/"[^"]*"/, $.arg))),
+            ")",
+        ),
+
+        c4_node: $ => seq(
+            choice(kwd("Deployment_Node"), kwd("Node"), kwd("Node_L"), kwd("Node_R")),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.alias),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            repeat(seq(",", alias(/"[^"]*"/, $.arg))),
+            ")",
+        ),
+
+        c4_stmt_boundary: $ => seq(
+            choice(
+                kwd("Boundary"),
+                kwd("Enterprise_Boundary"),
+                kwd("System_Boundary"),
+                kwd("Container_Boundary"),
+            ),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.alias),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            optional(seq(",", alias(/"[^"]*"/, $.type))),
+            ")",
+            "{",
+            repeat(choice($._c4_stmt, $._newline)),
+            "}",
+        ),
+
+        c4_stmt_rel: $ => seq(
+            choice(
+                kwd("Rel"),
+                kwd("Rel_U"),
+                kwd("Rel_D"),
+                kwd("Rel_L"),
+                kwd("Rel_R"),
+                kwd("Rel_Back"),
+                kwd("BiRel"),
+                kwd("RelIndex"),
+            ),
+            "(",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.from),
+            ",",
+            alias(/[a-zA-Z_][a-zA-Z0-9_]*/, $.to),
+            ",",
+            alias(/"[^"]*"/, $.label),
+            repeat(seq(",", alias(/"[^"]*"/, $.arg))),
+            ")",
+        ),
+
+        c4_stmt_update_style: $ => seq(
+            choice(kwd("UpdateElementStyle"), kwd("UpdateRelStyle")),
+            "(",
+            /[^)]+/,
+            ")",
+        ),
+
+        c4_stmt_update_layout: $ => seq(
+            kwd("UpdateLayoutConfig"),
+            "(",
+            /[^)]+/,
+            ")",
+        ),
+
+        /// Sankey diagram
+        diagram_sankey: $ => seq(
+            choice(kwd("sankey-beta"), kwd("sankey")),
+            $._newline,
+            repeat(choice($._sankey_stmt, $._newline)),
+        ),
+
+        _sankey_stmt: $ => $.sankey_stmt_link,
+
+        sankey_stmt_link: $ => seq(
+            $.sankey_source,
+            ",",
+            $.sankey_target,
+            ",",
+            $.sankey_value,
+        ),
+
+        /// XY Chart diagram
+        diagram_xychart: $ => seq(
+            choice(kwd("xychart-beta"), kwd("xychart")),
+            optional(kwd("horizontal")),
+            $._newline,
+            repeat(choice($._xychart_stmt, $._newline)),
+        ),
+
+        _xychart_stmt: $ => choice(
+            $.xychart_stmt_title,
+            $.xychart_stmt_x_axis,
+            $.xychart_stmt_y_axis,
+            $.xychart_stmt_line,
+            $.xychart_stmt_bar,
+        ),
+
+        xychart_stmt_title: $ => prec(1, seq(
+            kwd("title"), alias(/[^\n;]+/, $.title),
+        )),
+
+        xychart_stmt_x_axis: $ => prec(1, seq(
+            kwd("x-axis"),
+            optional(alias(/"[^"]*"/, $.axis_title)),
+            "[",
+            sep(/[^\],]+/, ","),
+            "]",
+        )),
+
+        xychart_stmt_y_axis: $ => prec(1, seq(
+            kwd("y-axis"),
+            optional(alias(/"[^"]*"/, $.axis_title)),
+            optional(seq(
+                alias(/[\-]?[\d]*\.?[\d]+/, $.min),
+                "-->",
+                alias(/[\-]?[\d]*\.?[\d]+/, $.max),
+            )),
+        )),
+
+        xychart_stmt_line: $ => prec(1, seq(
+            kwd("line"),
+            "[",
+            sep(/[\-]?[\d]*\.?[\d]+/, ","),
+            "]",
+        )),
+
+        xychart_stmt_bar: $ => prec(1, seq(
+            kwd("bar"),
+            "[",
+            sep(/[\-]?[\d]*\.?[\d]+/, ","),
+            "]",
+        )),
+
+        /// Block diagram
+        diagram_block: $ => seq(
+            choice(kwd("block-beta"), kwd("block")),
+            $._newline,
+            repeat(choice($._block_stmt, $._newline)),
+        ),
+
+        _block_stmt: $ => choice(
+            $.block_stmt_columns,
+            $.block_stmt_block,
+            $.block_stmt_arrow,
+            $.block_stmt_style,
+            $.block_stmt_class,
+        ),
+
+        block_stmt_columns: $ => seq(
+            kwd("columns"),
+            $.block_columns,
+        ),
+
+        block_stmt_block: $ => seq(
+            $.block_id,
+            optional(choice(
+                seq("[", alias(/[^\]]+/, $.block_text), "]"),
+                seq("(", alias(/[^)]+/, $.block_text), ")"),
+                seq("((", alias(/[^)]+/, $.block_text), "))"),
+                seq("([", alias(/[^\]]+/, $.block_text), "])"),
+                seq("[[", alias(/[^\]]+/, $.block_text), "]]"),
+                seq("[(", alias(/[^)]+/, $.block_text), ")]"),
+                seq(">", alias(/[^\]]+/, $.block_text), "]"),
+            )),
+            optional(seq(":", $.block_columns)),
+        ),
+
+        block_stmt_arrow: $ => seq(
+            $.block_id,
+            choice("-->", "---", "-.-", "==>", "==="),
+            optional(seq("|", alias(/[^|]+/, $.arrow_text), "|")),
+            $.block_id,
+        ),
+
+        block_stmt_style: $ => seq(
+            kwd("style"),
+            $.block_id,
+            /[^\n;]+/,
+        ),
+
+        block_stmt_class: $ => seq(
+            kwd("classDef"),
+            $.block_id,
+            /[^\n;]+/,
+        ),
+
+        /// Packet diagram
+        diagram_packet: $ => seq(
+            choice(kwd("packet-beta"), kwd("packet")),
+            $._newline,
+            repeat(choice($._packet_stmt, $._newline)),
+        ),
+
+        _packet_stmt: $ => $.packet_stmt_field,
+
+        packet_stmt_field: $ => seq(
+            choice($.packet_range, $.packet_plus_bits),
+            ":",
+            $.packet_field_name,
+        ),
+
+        /// Kanban diagram
+        diagram_kanban: $ => seq(
+            kwd("kanban"),
+            $._newline,
+            repeat(choice($._kanban_stmt, $._newline)),
+        ),
+
+        _kanban_stmt: $ => choice(
+            $.kanban_column,
+            $.kanban_task,
+        ),
+
+        kanban_column: $ => prec(1, seq(
+            alias(token(prec(1, /[a-zA-Z_][a-zA-Z0-9_]*/)), $.column_id),
+            alias(/\[[^\]]+\]/, $.column_title),
+        )),
+
+        kanban_task: $ => seq(
+            alias(token(prec(0, /[ \t]+[a-zA-Z_][a-zA-Z0-9_]*/)), $.task_id),
+            alias(/\[[^\]]+\]/, $.task_title),
+            optional($.kanban_metadata),
+        ),
+
+        kanban_metadata: $ => seq(
+            "@{",
+            sep($.kanban_metadata_pair, ","),
+            "}",
+        ),
+
+        kanban_metadata_pair: $ => seq(
+            $.kanban_metadata_key,
+            ":",
+            $.kanban_metadata_value,
+        ),
+
+        /// Architecture diagram
+        diagram_architecture: $ => seq(
+            kwd("architecture-beta"),
+            $._newline,
+            repeat(choice($._architecture_stmt, $._newline)),
+        ),
+
+        _architecture_stmt: $ => choice(
+            $.architecture_stmt_group,
+            $.architecture_stmt_service,
+            $.architecture_stmt_edge,
+            $.architecture_stmt_junction,
+        ),
+
+        architecture_stmt_group: $ => seq(
+            kwd("group"),
+            $.architecture_id,
+            optional(seq("(", $.architecture_icon, ")")),
+            optional($.architecture_label),
+            optional(seq(kwd("in"), $.architecture_id)),
+        ),
+
+        architecture_stmt_service: $ => seq(
+            kwd("service"),
+            $.architecture_id,
+            optional(seq("(", $.architecture_icon, ")")),
+            optional($.architecture_label),
+            optional(seq(kwd("in"), $.architecture_id)),
+        ),
+
+        architecture_stmt_junction: $ => seq(
+            kwd("junction"),
+            $.architecture_id,
+            optional(seq(kwd("in"), $.architecture_id)),
+        ),
+
+        architecture_stmt_edge: $ => seq(
+            $.architecture_id,
+            optional(seq("{", kwd("group"), "}")),
+            ":",
+            $.architecture_side,
+            optional(choice("<", ">")),
+            choice("--", "<--", "-->"),
+            optional(choice("<", ">")),
+            $.architecture_side,
+            ":",
+            $.architecture_id,
+            optional(seq("{", kwd("group"), "}")),
+        ),
 
 
         ... tokensFunc

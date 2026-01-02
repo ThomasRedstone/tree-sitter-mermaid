@@ -1,0 +1,77 @@
+==================
+Simple Quadrant Chart
+==================
+
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+
+---
+
+(source_file
+  (diagram_quadrant
+    (quadrant_stmt_title
+      (title))
+    (quadrant_stmt_x_axis
+      (axis_left)
+      (axis_right))
+    (quadrant_stmt_y_axis
+      (axis_bottom)
+      (axis_top))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))))
+
+==================
+Quadrant Chart with Single Axis Labels
+==================
+
+quadrantChart
+    title Skills Assessment
+    x-axis Technical Skills
+    y-axis Soft Skills
+    quadrant-1 Senior
+    quadrant-2 Team Lead
+    quadrant-3 Junior
+    quadrant-4 Specialist
+    Alice: [0.8, 0.7]
+    Bob: [0.5, 0.9]
+
+---
+
+(source_file
+  (diagram_quadrant
+    (quadrant_stmt_title
+      (title))
+    (quadrant_stmt_x_axis
+      (axis_left))
+    (quadrant_stmt_y_axis
+      (axis_bottom))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))))

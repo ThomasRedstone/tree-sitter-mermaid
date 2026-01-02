@@ -1,0 +1,56 @@
+==================
+Simple Sankey Diagram
+==================
+
+sankey-beta
+    Agricultural waste,Bio-conversion,124.729
+    Bio-conversion,Liquid,0.597
+    Bio-conversion,Losses,26.862
+    Bio-conversion,Solid,280.322
+
+---
+
+(source_file
+  (diagram_sankey
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))))
+
+==================
+Sankey with Quoted Values
+==================
+
+sankey-beta
+    "Source A",Target B,100
+    "Source A","Target C",50
+    Target B,"Final Output",150
+
+---
+
+(source_file
+  (diagram_sankey
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))))

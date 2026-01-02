@@ -1,0 +1,90 @@
+==================
+Simple Architecture Diagram
+==================
+
+architecture-beta
+    group api(cloud)[API]
+    service db(database)[Database] in api
+    service server(server)[Server] in api
+
+---
+
+(source_file
+  (diagram_architecture
+    (architecture_stmt_group
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label)
+      (architecture_id))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label)
+      (architecture_id))))
+
+==================
+Architecture with Edges
+==================
+
+architecture-beta
+    service client(internet)[Client]
+    service server(server)[Server]
+    client:R --> L:server
+
+---
+
+(source_file
+  (diagram_architecture
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))))
+
+==================
+Architecture with Junction
+==================
+
+architecture-beta
+    service a(disk)[Service A]
+    service b(disk)[Service B]
+    junction hub
+    a:R -- L:hub
+    hub:R -- L:b
+
+---
+
+(source_file
+  (diagram_architecture
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_junction
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))))

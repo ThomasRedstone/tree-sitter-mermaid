@@ -1,0 +1,66 @@
+==================
+Simple Timeline
+==================
+
+timeline
+    title History of Social Media Platform
+    2002 : LinkedIn
+    2004 : Facebook : Google
+    2005 : YouTube
+    2006 : Twitter
+
+---
+
+(source_file
+  (diagram_timeline
+    (timeline_stmt_title
+      (title))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))))
+
+==================
+Timeline with Sections
+==================
+
+timeline
+    title Company History
+    section Foundation
+    2010 : Company founded
+    2011 : First product launch
+    section Growth
+    2015 : IPO
+    2020 : Global expansion
+
+---
+
+(source_file
+  (diagram_timeline
+    (timeline_stmt_title
+      (title))
+    (timeline_stmt_section
+      (section_name))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_section
+      (section_name))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))))

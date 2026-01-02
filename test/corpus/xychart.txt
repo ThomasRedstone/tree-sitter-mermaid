@@ -1,0 +1,69 @@
+==================
+Simple XY Chart with Bar
+==================
+
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr]
+    y-axis "Revenue (in thousands)" 0 --> 100
+    bar [50, 60, 75, 80]
+
+---
+
+(source_file
+  (diagram_xychart
+    (xychart_stmt_title
+      (title))
+    (xychart_stmt_x_axis)
+    (xychart_stmt_y_axis
+      (axis_title)
+      (min)
+      (max))
+    (xychart_stmt_bar)))
+
+==================
+XY Chart with Line
+==================
+
+xychart-beta
+    title "Temperature"
+    x-axis [Mon, Tue, Wed, Thu, Fri]
+    y-axis "Celsius" 10 --> 40
+    line [20, 25, 22, 28, 30]
+
+---
+
+(source_file
+  (diagram_xychart
+    (xychart_stmt_title
+      (title))
+    (xychart_stmt_x_axis)
+    (xychart_stmt_y_axis
+      (axis_title)
+      (min)
+      (max))
+    (xychart_stmt_line)))
+
+==================
+XY Chart Horizontal
+==================
+
+xychart-beta horizontal
+    title "Comparison"
+    x-axis [A, B, C]
+    y-axis 0 --> 50
+    bar [10, 30, 20]
+    line [15, 25, 22]
+
+---
+
+(source_file
+  (diagram_xychart
+    (xychart_stmt_title
+      (title))
+    (xychart_stmt_x_axis)
+    (xychart_stmt_y_axis
+      (min)
+      (max))
+    (xychart_stmt_bar)
+    (xychart_stmt_line)))

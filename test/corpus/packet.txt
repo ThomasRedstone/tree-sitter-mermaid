@@ -1,0 +1,65 @@
+==================
+Simple Packet Diagram
+==================
+
+packet-beta
+    0-15: "Source Port"
+    16-31: "Destination Port"
+    32-63: "Sequence Number"
+    64-95: "Acknowledgment Number"
+
+---
+
+(source_file
+  (diagram_packet
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))))
+
+==================
+Packet Diagram with Plus Bits
+==================
+
+packet-beta
+    +1: "Reserved"
+    +1: "URG"
+    +1: "ACK"
+    +1: "PSH"
+    +1: "RST"
+    +1: "SYN"
+    +1: "FIN"
+
+---
+
+(source_file
+  (diagram_packet
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))))

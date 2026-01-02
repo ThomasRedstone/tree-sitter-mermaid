@@ -1,5 +1,105 @@
 [
   {
+    "type": "_architecture_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "architecture_stmt_edge",
+        "named": true
+      },
+      {
+        "type": "architecture_stmt_group",
+        "named": true
+      },
+      {
+        "type": "architecture_stmt_junction",
+        "named": true
+      },
+      {
+        "type": "architecture_stmt_service",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_block_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "block_stmt_arrow",
+        "named": true
+      },
+      {
+        "type": "block_stmt_block",
+        "named": true
+      },
+      {
+        "type": "block_stmt_class",
+        "named": true
+      },
+      {
+        "type": "block_stmt_columns",
+        "named": true
+      },
+      {
+        "type": "block_stmt_style",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_c4_element",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "c4_component",
+        "named": true
+      },
+      {
+        "type": "c4_container",
+        "named": true
+      },
+      {
+        "type": "c4_node",
+        "named": true
+      },
+      {
+        "type": "c4_person",
+        "named": true
+      },
+      {
+        "type": "c4_system",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_c4_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "_c4_element",
+        "named": true
+      },
+      {
+        "type": "c4_stmt_boundary",
+        "named": true
+      },
+      {
+        "type": "c4_stmt_rel",
+        "named": true
+      },
+      {
+        "type": "c4_stmt_update_layout",
+        "named": true
+      },
+      {
+        "type": "c4_stmt_update_style",
+        "named": true
+      }
+    ]
+  },
+  {
     "type": "_class_linetype",
     "named": true,
     "subtypes": [
@@ -318,6 +418,84 @@
     ]
   },
   {
+    "type": "_gitgraph_commit_type",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "commit_type",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_gitgraph_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "gitgraph_stmt_branch",
+        "named": true
+      },
+      {
+        "type": "gitgraph_stmt_checkout",
+        "named": true
+      },
+      {
+        "type": "gitgraph_stmt_cherrypick",
+        "named": true
+      },
+      {
+        "type": "gitgraph_stmt_commit",
+        "named": true
+      },
+      {
+        "type": "gitgraph_stmt_merge",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_journey_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "journey_stmt_section",
+        "named": true
+      },
+      {
+        "type": "journey_stmt_task",
+        "named": true
+      },
+      {
+        "type": "journey_stmt_title",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_kanban_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "kanban_column",
+        "named": true
+      },
+      {
+        "type": "kanban_task",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_packet_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "packet_stmt_field",
+        "named": true
+      }
+    ]
+  },
+  {
     "type": "_pie_stmt",
     "named": true,
     "subtypes": [
@@ -327,6 +505,164 @@
       },
       {
         "type": "pie_stmt_title",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_quadrant_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "quadrant_stmt_point",
+        "named": true
+      },
+      {
+        "type": "quadrant_stmt_quadrant",
+        "named": true
+      },
+      {
+        "type": "quadrant_stmt_title",
+        "named": true
+      },
+      {
+        "type": "quadrant_stmt_x_axis",
+        "named": true
+      },
+      {
+        "type": "quadrant_stmt_y_axis",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_requirement_relationship",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "contains",
+        "named": false
+      },
+      {
+        "type": "copies",
+        "named": false
+      },
+      {
+        "type": "derives",
+        "named": false
+      },
+      {
+        "type": "refines",
+        "named": false
+      },
+      {
+        "type": "satisfies",
+        "named": false
+      },
+      {
+        "type": "traces",
+        "named": false
+      },
+      {
+        "type": "verifies",
+        "named": false
+      }
+    ]
+  },
+  {
+    "type": "_requirement_risk",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "High",
+        "named": false
+      },
+      {
+        "type": "Low",
+        "named": false
+      },
+      {
+        "type": "Medium",
+        "named": false
+      }
+    ]
+  },
+  {
+    "type": "_requirement_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "requirement_stmt_element",
+        "named": true
+      },
+      {
+        "type": "requirement_stmt_relation",
+        "named": true
+      },
+      {
+        "type": "requirement_stmt_requirement",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_requirement_type",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "designConstraint",
+        "named": false
+      },
+      {
+        "type": "functionalRequirement",
+        "named": false
+      },
+      {
+        "type": "interfaceRequirement",
+        "named": false
+      },
+      {
+        "type": "performanceRequirement",
+        "named": false
+      },
+      {
+        "type": "physicalRequirement",
+        "named": false
+      },
+      {
+        "type": "requirement",
+        "named": false
+      }
+    ]
+  },
+  {
+    "type": "_requirement_verifymethod",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "Analysis",
+        "named": false
+      },
+      {
+        "type": "Demonstration",
+        "named": false
+      },
+      {
+        "type": "Inspection",
+        "named": false
+      },
+      {
+        "type": "Test",
+        "named": false
+      }
+    ]
+  },
+  {
+    "type": "_sankey_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "sankey_stmt_link",
         "named": true
       }
     ]
@@ -460,6 +796,421 @@
         "named": true
       }
     ]
+  },
+  {
+    "type": "_timeline_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "timeline_stmt_event",
+        "named": true
+      },
+      {
+        "type": "timeline_stmt_section",
+        "named": true
+      },
+      {
+        "type": "timeline_stmt_title",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "_xychart_stmt",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "xychart_stmt_bar",
+        "named": true
+      },
+      {
+        "type": "xychart_stmt_line",
+        "named": true
+      },
+      {
+        "type": "xychart_stmt_title",
+        "named": true
+      },
+      {
+        "type": "xychart_stmt_x_axis",
+        "named": true
+      },
+      {
+        "type": "xychart_stmt_y_axis",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "architecture_id",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "architecture_label",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "architecture_stmt_edge",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "architecture_id",
+          "named": true
+        },
+        {
+          "type": "architecture_side",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "architecture_stmt_group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "architecture_icon",
+          "named": true
+        },
+        {
+          "type": "architecture_id",
+          "named": true
+        },
+        {
+          "type": "architecture_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "architecture_stmt_junction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "architecture_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "architecture_stmt_service",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "architecture_icon",
+          "named": true
+        },
+        {
+          "type": "architecture_id",
+          "named": true
+        },
+        {
+          "type": "architecture_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_columns",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "block_id",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "block_stmt_arrow",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arrow_text",
+          "named": true
+        },
+        {
+          "type": "block_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_stmt_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_columns",
+          "named": true
+        },
+        {
+          "type": "block_id",
+          "named": true
+        },
+        {
+          "type": "block_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_stmt_class",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_stmt_columns",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block_columns",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_stmt_style",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_component",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "arg",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_container",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "arg",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_node",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "arg",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_person",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "descr",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_stmt_boundary",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_c4_stmt",
+          "named": true
+        },
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_stmt_rel",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arg",
+          "named": true
+        },
+        {
+          "type": "from",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "to",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c4_stmt_update_layout",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "c4_stmt_update_style",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "c4_system",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "descr",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cardinality",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "class_annotation_line",
@@ -692,6 +1443,51 @@
     }
   },
   {
+    "type": "diagram_architecture",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_architecture_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_block_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_c4",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_c4_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "diagram_class",
     "named": true,
     "fields": {},
@@ -756,6 +1552,51 @@
     }
   },
   {
+    "type": "diagram_gitgraph",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_gitgraph_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_journey",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_journey_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_kanban",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_kanban_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "diagram_mindmap",
     "named": true,
     "fields": {},
@@ -765,6 +1606,21 @@
       "types": [
         {
           "type": "mmap_node",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_packet",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_packet_stmt",
           "named": true
         }
       ]
@@ -784,6 +1640,51 @@
         },
         {
           "type": "pie_showdata",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_quadrant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_quadrant_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_requirement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_requirement_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_sankey",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_sankey_stmt",
           "named": true
         }
       ]
@@ -814,6 +1715,36 @@
       "types": [
         {
           "type": "_state_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_timeline",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_timeline_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "diagram_xychart",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_xychart_stmt",
           "named": true
         }
       ]
@@ -862,6 +1793,25 @@
     "type": "dotted_open_arrow",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "element_body_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "docref",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "er_attribute",
@@ -1744,6 +2694,241 @@
     "fields": {}
   },
   {
+    "type": "gitgraph_commit_id",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "gitgraph_commit_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "gitgraph_stmt_branch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "gitgraph_branch_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gitgraph_stmt_checkout",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "gitgraph_branch_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gitgraph_stmt_cherrypick",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gitgraph_commit_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gitgraph_stmt_commit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_gitgraph_commit_type",
+          "named": true
+        },
+        {
+          "type": "gitgraph_commit_id",
+          "named": true
+        },
+        {
+          "type": "gitgraph_commit_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gitgraph_stmt_merge",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_gitgraph_commit_type",
+          "named": true
+        },
+        {
+          "type": "gitgraph_branch_name",
+          "named": true
+        },
+        {
+          "type": "gitgraph_commit_id",
+          "named": true
+        },
+        {
+          "type": "gitgraph_commit_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "journey_stmt_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "section_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "journey_stmt_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "actors",
+          "named": true
+        },
+        {
+          "type": "task_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "journey_stmt_title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kanban_column",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column_id",
+          "named": true
+        },
+        {
+          "type": "column_title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kanban_metadata",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kanban_metadata_pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kanban_metadata_key",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kanban_metadata_pair",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kanban_metadata_key",
+          "named": true
+        },
+        {
+          "type": "kanban_metadata_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kanban_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kanban_metadata",
+          "named": true
+        },
+        {
+          "type": "task_id",
+          "named": true
+        },
+        {
+          "type": "task_title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "mmap_class",
     "named": true,
     "fields": {}
@@ -1950,6 +3135,34 @@
     "fields": {}
   },
   {
+    "type": "packet_field_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "packet_stmt_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "packet_field_name",
+          "named": true
+        },
+        {
+          "type": "packet_plus_bits",
+          "named": true
+        },
+        {
+          "type": "packet_range",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pie_label",
     "named": true,
     "fields": {}
@@ -1992,6 +3205,214 @@
         }
       ]
     }
+  },
+  {
+    "type": "quadrant_stmt_point",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "point_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quadrant_stmt_quadrant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "quadrant_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quadrant_stmt_title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quadrant_stmt_x_axis",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "axis_left",
+          "named": true
+        },
+        {
+          "type": "axis_right",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quadrant_stmt_y_axis",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "axis_bottom",
+          "named": true
+        },
+        {
+          "type": "axis_top",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "requirement_body_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "_requirement_risk",
+          "named": true
+        },
+        {
+          "type": "_requirement_verifymethod",
+          "named": true
+        },
+        {
+          "type": "id",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "requirement_stmt_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "element_body_stmt",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "requirement_stmt_relation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_requirement_relationship",
+          "named": true
+        },
+        {
+          "type": "source",
+          "named": true
+        },
+        {
+          "type": "target",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "requirement_stmt_requirement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_requirement_type",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "requirement_body_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sankey_source",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sankey_stmt_link",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sankey_source",
+          "named": true
+        },
+        {
+          "type": "sankey_target",
+          "named": true
+        },
+        {
+          "type": "sankey_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sankey_target",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "sequence_actor",
@@ -2454,6 +3875,11 @@
     "fields": {}
   },
   {
+    "type": "solid_open_arrow",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "solid_point",
     "named": true,
     "fields": {}
@@ -2466,6 +3892,18 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "diagram_architecture",
+          "named": true
+        },
+        {
+          "type": "diagram_block",
+          "named": true
+        },
+        {
+          "type": "diagram_c4",
+          "named": true
+        },
         {
           "type": "diagram_class",
           "named": true
@@ -2483,11 +3921,39 @@
           "named": true
         },
         {
+          "type": "diagram_gitgraph",
+          "named": true
+        },
+        {
+          "type": "diagram_journey",
+          "named": true
+        },
+        {
+          "type": "diagram_kanban",
+          "named": true
+        },
+        {
           "type": "diagram_mindmap",
           "named": true
         },
         {
+          "type": "diagram_packet",
+          "named": true
+        },
+        {
           "type": "diagram_pie",
+          "named": true
+        },
+        {
+          "type": "diagram_quadrant",
+          "named": true
+        },
+        {
+          "type": "diagram_requirement",
+          "named": true
+        },
+        {
+          "type": "diagram_sankey",
           "named": true
         },
         {
@@ -2496,6 +3962,14 @@
         },
         {
           "type": "diagram_state",
+          "named": true
+        },
+        {
+          "type": "diagram_timeline",
+          "named": true
+        },
+        {
+          "type": "diagram_xychart",
           "named": true
         },
         {
@@ -2729,9 +4203,121 @@
     }
   },
   {
+    "type": "timeline_stmt_event",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event",
+          "named": true
+        },
+        {
+          "type": "period",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "timeline_stmt_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "section_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "timeline_stmt_title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "title",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "xychart_stmt_bar",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "xychart_stmt_line",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "xychart_stmt_title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "xychart_stmt_x_axis",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "axis_title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "xychart_stmt_y_axis",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "axis_title",
+          "named": true
+        },
+        {
+          "type": "max",
+          "named": true
+        },
+        {
+          "type": "min",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "%%{",
@@ -2794,11 +4380,23 @@
     "named": false
   },
   {
+    "type": "---",
+    "named": false
+  },
+  {
     "type": "-->",
     "named": false
   },
   {
     "type": "-.",
+    "named": false
+  },
+  {
+    "type": "-.-",
+    "named": false
+  },
+  {
+    "type": "->",
     "named": false
   },
   {
@@ -2830,6 +4428,14 @@
     "named": false
   },
   {
+    "type": "<-",
+    "named": false
+  },
+  {
+    "type": "<--",
+    "named": false
+  },
+  {
     "type": "<<",
     "named": false
   },
@@ -2838,11 +4444,239 @@
     "named": false
   },
   {
+    "type": "===",
+    "named": false
+  },
+  {
+    "type": "==>",
+    "named": false
+  },
+  {
     "type": ">",
     "named": false
   },
   {
     "type": ">>",
+    "named": false
+  },
+  {
+    "type": "@{",
+    "named": false
+  },
+  {
+    "type": "Analysis",
+    "named": false
+  },
+  {
+    "type": "BT:",
+    "named": false
+  },
+  {
+    "type": "BiRel",
+    "named": false
+  },
+  {
+    "type": "Boundary",
+    "named": false
+  },
+  {
+    "type": "C4Component",
+    "named": false
+  },
+  {
+    "type": "C4Container",
+    "named": false
+  },
+  {
+    "type": "C4Context",
+    "named": false
+  },
+  {
+    "type": "C4Deployment",
+    "named": false
+  },
+  {
+    "type": "C4Dynamic",
+    "named": false
+  },
+  {
+    "type": "Component",
+    "named": false
+  },
+  {
+    "type": "ComponentDb",
+    "named": false
+  },
+  {
+    "type": "ComponentDb_Ext",
+    "named": false
+  },
+  {
+    "type": "ComponentQueue",
+    "named": false
+  },
+  {
+    "type": "ComponentQueue_Ext",
+    "named": false
+  },
+  {
+    "type": "Component_Ext",
+    "named": false
+  },
+  {
+    "type": "Container",
+    "named": false
+  },
+  {
+    "type": "ContainerDb",
+    "named": false
+  },
+  {
+    "type": "ContainerDb_Ext",
+    "named": false
+  },
+  {
+    "type": "ContainerQueue",
+    "named": false
+  },
+  {
+    "type": "ContainerQueue_Ext",
+    "named": false
+  },
+  {
+    "type": "Container_Boundary",
+    "named": false
+  },
+  {
+    "type": "Container_Ext",
+    "named": false
+  },
+  {
+    "type": "Demonstration",
+    "named": false
+  },
+  {
+    "type": "Deployment_Node",
+    "named": false
+  },
+  {
+    "type": "Enterprise_Boundary",
+    "named": false
+  },
+  {
+    "type": "High",
+    "named": false
+  },
+  {
+    "type": "Inspection",
+    "named": false
+  },
+  {
+    "type": "LR:",
+    "named": false
+  },
+  {
+    "type": "Low",
+    "named": false
+  },
+  {
+    "type": "Medium",
+    "named": false
+  },
+  {
+    "type": "Node",
+    "named": false
+  },
+  {
+    "type": "Node_L",
+    "named": false
+  },
+  {
+    "type": "Node_R",
+    "named": false
+  },
+  {
+    "type": "Person",
+    "named": false
+  },
+  {
+    "type": "Person_Ext",
+    "named": false
+  },
+  {
+    "type": "Rel",
+    "named": false
+  },
+  {
+    "type": "RelIndex",
+    "named": false
+  },
+  {
+    "type": "Rel_Back",
+    "named": false
+  },
+  {
+    "type": "Rel_D",
+    "named": false
+  },
+  {
+    "type": "Rel_L",
+    "named": false
+  },
+  {
+    "type": "Rel_R",
+    "named": false
+  },
+  {
+    "type": "Rel_U",
+    "named": false
+  },
+  {
+    "type": "System",
+    "named": false
+  },
+  {
+    "type": "SystemDb",
+    "named": false
+  },
+  {
+    "type": "SystemDb_Ext",
+    "named": false
+  },
+  {
+    "type": "SystemQueue",
+    "named": false
+  },
+  {
+    "type": "SystemQueue_Ext",
+    "named": false
+  },
+  {
+    "type": "System_Boundary",
+    "named": false
+  },
+  {
+    "type": "System_Ext",
+    "named": false
+  },
+  {
+    "type": "TB:",
+    "named": false
+  },
+  {
+    "type": "Test",
+    "named": false
+  },
+  {
+    "type": "UpdateElementStyle",
+    "named": false
+  },
+  {
+    "type": "UpdateLayoutConfig",
+    "named": false
+  },
+  {
+    "type": "UpdateRelStyle",
     "named": false
   },
   {
@@ -2902,6 +4736,14 @@
     "named": false
   },
   {
+    "type": "actors",
+    "named": true
+  },
+  {
+    "type": "alias",
+    "named": true
+  },
+  {
     "type": "alt",
     "named": false
   },
@@ -2914,7 +4756,27 @@
     "named": true
   },
   {
+    "type": "architecture-beta",
+    "named": false
+  },
+  {
+    "type": "architecture_icon",
+    "named": true
+  },
+  {
+    "type": "architecture_side",
+    "named": true
+  },
+  {
+    "type": "arg",
+    "named": true
+  },
+  {
     "type": "arg_directive",
+    "named": true
+  },
+  {
+    "type": "arrow_text",
     "named": true
   },
   {
@@ -2926,11 +4788,51 @@
     "named": false
   },
   {
+    "type": "axis_bottom",
+    "named": true
+  },
+  {
+    "type": "axis_left",
+    "named": true
+  },
+  {
+    "type": "axis_right",
+    "named": true
+  },
+  {
+    "type": "axis_title",
+    "named": true
+  },
+  {
+    "type": "axis_top",
+    "named": true
+  },
+  {
     "type": "axisformat",
     "named": false
   },
   {
+    "type": "bar",
+    "named": false
+  },
+  {
+    "type": "block",
+    "named": false
+  },
+  {
+    "type": "block-beta",
+    "named": false
+  },
+  {
+    "type": "block_text",
+    "named": true
+  },
+  {
     "type": "br",
+    "named": false
+  },
+  {
+    "type": "branch",
     "named": false
   },
   {
@@ -2938,11 +4840,19 @@
     "named": false
   },
   {
-    "type": "cardinality",
-    "named": true
+    "type": "checkout",
+    "named": false
+  },
+  {
+    "type": "cherry-pick",
+    "named": false
   },
   {
     "type": "class",
+    "named": false
+  },
+  {
+    "type": "classDef",
     "named": false
   },
   {
@@ -2986,8 +4896,36 @@
     "named": true
   },
   {
+    "type": "column_id",
+    "named": true
+  },
+  {
+    "type": "column_title",
+    "named": true
+  },
+  {
+    "type": "columns",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "commit",
+    "named": false
+  },
+  {
+    "type": "commit_type",
+    "named": true
+  },
+  {
+    "type": "contains",
+    "named": false
+  },
+  {
+    "type": "copies",
+    "named": false
   },
   {
     "type": "dateformat",
@@ -2995,6 +4933,18 @@
   },
   {
     "type": "deactivate",
+    "named": false
+  },
+  {
+    "type": "derives",
+    "named": false
+  },
+  {
+    "type": "descr",
+    "named": true
+  },
+  {
+    "type": "designConstraint",
     "named": false
   },
   {
@@ -3022,6 +4972,14 @@
     "named": false
   },
   {
+    "type": "docref",
+    "named": true
+  },
+  {
+    "type": "docref",
+    "named": false
+  },
+  {
     "type": "dotted_arrow",
     "named": true
   },
@@ -3032,6 +4990,10 @@
   {
     "type": "dotted_point",
     "named": true
+  },
+  {
+    "type": "element",
+    "named": false
   },
   {
     "type": "else",
@@ -3050,6 +5012,10 @@
     "named": false
   },
   {
+    "type": "event",
+    "named": true
+  },
+  {
     "type": "excludes",
     "named": false
   },
@@ -3066,6 +5032,14 @@
     "named": false
   },
   {
+    "type": "from",
+    "named": true
+  },
+  {
+    "type": "functionalRequirement",
+    "named": false
+  },
+  {
     "type": "gantt",
     "named": false
   },
@@ -3074,7 +5048,39 @@
     "named": true
   },
   {
+    "type": "gitGraph",
+    "named": false
+  },
+  {
+    "type": "gitgraph",
+    "named": false
+  },
+  {
+    "type": "gitgraph_branch_name",
+    "named": true
+  },
+  {
+    "type": "group",
+    "named": false
+  },
+  {
     "type": "hide empty description",
+    "named": false
+  },
+  {
+    "type": "horizontal",
+    "named": false
+  },
+  {
+    "type": "id",
+    "named": true
+  },
+  {
+    "type": "id",
+    "named": false
+  },
+  {
+    "type": "in",
     "named": false
   },
   {
@@ -3086,7 +5092,35 @@
     "named": false
   },
   {
+    "type": "interfaceRequirement",
+    "named": false
+  },
+  {
+    "type": "journey",
+    "named": false
+  },
+  {
+    "type": "junction",
+    "named": false
+  },
+  {
+    "type": "kanban",
+    "named": false
+  },
+  {
+    "type": "kanban_metadata_value",
+    "named": true
+  },
+  {
+    "type": "label",
+    "named": true
+  },
+  {
     "type": "left of",
+    "named": false
+  },
+  {
+    "type": "line",
     "named": false
   },
   {
@@ -3106,7 +5140,27 @@
     "named": false
   },
   {
+    "type": "max",
+    "named": true
+  },
+  {
     "type": "md_text",
+    "named": true
+  },
+  {
+    "type": "merge",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": true
+  },
+  {
+    "type": "msg",
+    "named": false
+  },
+  {
+    "type": "name",
     "named": true
   },
   {
@@ -3115,6 +5169,10 @@
   },
   {
     "type": "opt",
+    "named": false
+  },
+  {
+    "type": "order",
     "named": false
   },
   {
@@ -3130,11 +5188,43 @@
     "named": false
   },
   {
+    "type": "packet",
+    "named": false
+  },
+  {
+    "type": "packet-beta",
+    "named": false
+  },
+  {
+    "type": "packet_plus_bits",
+    "named": true
+  },
+  {
+    "type": "packet_range",
+    "named": true
+  },
+  {
     "type": "par",
     "named": false
   },
   {
+    "type": "parent",
+    "named": false
+  },
+  {
     "type": "participant",
+    "named": false
+  },
+  {
+    "type": "performanceRequirement",
+    "named": false
+  },
+  {
+    "type": "period",
+    "named": true
+  },
+  {
+    "type": "physicalRequirement",
     "named": false
   },
   {
@@ -3154,11 +5244,51 @@
     "named": false
   },
   {
+    "type": "point_name",
+    "named": true
+  },
+  {
     "type": "properties",
     "named": false
   },
   {
+    "type": "quadrant-1",
+    "named": false
+  },
+  {
+    "type": "quadrant-2",
+    "named": false
+  },
+  {
+    "type": "quadrant-3",
+    "named": false
+  },
+  {
+    "type": "quadrant-4",
+    "named": false
+  },
+  {
+    "type": "quadrantChart",
+    "named": false
+  },
+  {
+    "type": "quadrant_name",
+    "named": true
+  },
+  {
     "type": "rect",
+    "named": false
+  },
+  {
+    "type": "refines",
+    "named": false
+  },
+  {
+    "type": "requirement",
+    "named": false
+  },
+  {
+    "type": "requirementDiagram",
     "named": false
   },
   {
@@ -3166,7 +5296,27 @@
     "named": false
   },
   {
+    "type": "risk",
+    "named": false
+  },
+  {
     "type": "rl",
+    "named": false
+  },
+  {
+    "type": "sankey",
+    "named": false
+  },
+  {
+    "type": "sankey-beta",
+    "named": false
+  },
+  {
+    "type": "sankey_value",
+    "named": true
+  },
+  {
+    "type": "satisfies",
     "named": false
   },
   {
@@ -3174,11 +5324,19 @@
     "named": false
   },
   {
+    "type": "section_name",
+    "named": true
+  },
+  {
     "type": "sequenceDiagram",
     "named": false
   },
   {
     "type": "sequence_actor",
+    "named": false
+  },
+  {
+    "type": "service",
     "named": false
   },
   {
@@ -3194,7 +5352,7 @@
     "named": true
   },
   {
-    "type": "solid_open_arrow",
+    "type": "source",
     "named": true
   },
   {
@@ -3214,8 +5372,32 @@
     "named": true
   },
   {
+    "type": "style",
+    "named": false
+  },
+  {
     "type": "subgraph",
     "named": false
+  },
+  {
+    "type": "tag",
+    "named": false
+  },
+  {
+    "type": "target",
+    "named": true
+  },
+  {
+    "type": "task_id",
+    "named": true
+  },
+  {
+    "type": "task_name",
+    "named": true
+  },
+  {
+    "type": "task_title",
+    "named": true
   },
   {
     "type": "tb",
@@ -3226,8 +5408,24 @@
     "named": false
   },
   {
+    "type": "text",
+    "named": false
+  },
+  {
+    "type": "text",
+    "named": true
+  },
+  {
+    "type": "timeline",
+    "named": false
+  },
+  {
     "type": "title",
     "named": false
+  },
+  {
+    "type": "to",
+    "named": true
   },
   {
     "type": "todaymarker",
@@ -3238,11 +5436,47 @@
     "named": false
   },
   {
+    "type": "traces",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": true
+  },
+  {
     "type": "type_directive",
     "named": true
   },
   {
     "type": "v",
+    "named": false
+  },
+  {
+    "type": "verifies",
+    "named": false
+  },
+  {
+    "type": "verifymethod",
+    "named": false
+  },
+  {
+    "type": "x-axis",
+    "named": false
+  },
+  {
+    "type": "xychart",
+    "named": false
+  },
+  {
+    "type": "xychart-beta",
+    "named": false
+  },
+  {
+    "type": "y-axis",
     "named": false
   },
   {
