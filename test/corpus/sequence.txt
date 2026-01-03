@@ -344,3 +344,132 @@ sequenceDiagram
         (dotted_arrow))
       (sequence_actor)
       (sequence_text))))
+
+==========================
+Critical and Option
+==========================
+
+sequenceDiagram
+    critical Establish connection
+        Service-->DB: connect
+    option Network timeout
+        Service-->Service: Log error
+    end
+
+---
+
+(source_file
+  (diagram_sequence
+    (sequence_stmt_critical
+      (sequence_text)
+      (sequence_stmt_critical_inner
+        (sequence_stmt_signal
+          (sequence_actor)
+          (sequence_signal_type
+            (dotted_open_arrow))
+          (sequence_actor)
+          (sequence_text)))
+      (sequence_text)
+      (sequence_stmt_critical_option
+        (sequence_stmt_signal
+          (sequence_actor)
+          (sequence_signal_type
+            (dotted_open_arrow))
+          (sequence_actor)
+          (sequence_text))))))
+
+==========================
+Break statement
+==========================
+
+sequenceDiagram
+    Consumer-->API: Request
+    break when fails
+        API-->Consumer: Error
+    end
+
+---
+
+(source_file
+  (diagram_sequence
+    (sequence_stmt_signal
+      (sequence_actor)
+      (sequence_signal_type
+        (dotted_open_arrow))
+      (sequence_actor)
+      (sequence_text))
+    (sequence_stmt_break
+      (sequence_text)
+      (sequence_stmt_break_inner
+        (sequence_stmt_signal
+          (sequence_actor)
+          (sequence_signal_type
+            (dotted_open_arrow))
+          (sequence_actor)
+          (sequence_text))))))
+
+==========================
+Box grouping
+==========================
+
+sequenceDiagram
+    box Blue Team
+    participant Alice
+    participant Bob
+    end
+    Alice->>Bob: Hi
+
+---
+
+(source_file
+  (diagram_sequence
+    (sequence_stmt_box
+      (sequence_text)
+      (sequence_stmt_participant
+        (sequence_actor))
+      (sequence_stmt_participant
+        (sequence_actor)))
+    (sequence_stmt_signal
+      (sequence_actor)
+      (sequence_signal_type
+        (solid_arrow))
+      (sequence_actor)
+      (sequence_text))))
+
+==========================
+Create and Destroy
+==========================
+
+sequenceDiagram
+    Alice->>Bob: Hello
+    create participant Carl
+    Alice->>Carl: Do something
+    destroy Carl
+    Alice->>Bob: Done
+
+---
+
+(source_file
+  (diagram_sequence
+    (sequence_stmt_signal
+      (sequence_actor)
+      (sequence_signal_type
+        (solid_arrow))
+      (sequence_actor)
+      (sequence_text))
+    (sequence_stmt_create
+      (sequence_actor))
+    (sequence_stmt_signal
+      (sequence_actor)
+      (sequence_signal_type
+        (solid_arrow))
+      (sequence_actor)
+      (sequence_text))
+    (sequence_stmt_destroy
+      (sequence_actor))
+    (sequence_stmt_signal
+      (sequence_actor)
+      (sequence_signal_type
+        (solid_arrow))
+      (sequence_actor)
+      (sequence_text))))

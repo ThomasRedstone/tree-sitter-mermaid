@@ -88,3 +88,128 @@ architecture-beta
       (architecture_side)
       (architecture_side)
       (architecture_id))))
+
+==================
+Architecture Directional Edges
+==================
+
+architecture-beta
+    service a(server)[A]
+    service b(server)[B]
+    a:R --> L:b
+    a:B <-- T:b
+
+---
+
+(source_file
+  (diagram_architecture
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))))
+
+==================
+Architecture Nested Groups
+==================
+
+architecture-beta
+    group outer(cloud)[Outer]
+    group inner(cloud)[Inner] in outer
+    service svc(server)[Service] in inner
+
+---
+
+(source_file
+  (diagram_architecture
+    (architecture_stmt_group
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_group
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label)
+      (architecture_id))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label)
+      (architecture_id))))
+
+==================
+Architecture Complex Topology
+==================
+
+architecture-beta
+    service lb(internet)[Load Balancer]
+    service web1(server)[Web 1]
+    service web2(server)[Web 2]
+    service db(database)[Database]
+    junction split
+    lb:B -- T:split
+    split:L -- R:web1
+    split:R -- L:web2
+    web1:B -- T:db
+    web2:B -- T:db
+
+---
+
+(source_file
+  (diagram_architecture
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_service
+      (architecture_id)
+      (architecture_icon)
+      (architecture_label))
+    (architecture_stmt_junction
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))
+    (architecture_stmt_edge
+      (architecture_id)
+      (architecture_side)
+      (architecture_side)
+      (architecture_id))))

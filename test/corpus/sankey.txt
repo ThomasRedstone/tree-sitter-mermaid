@@ -54,3 +54,86 @@ sankey-beta
       (sankey_source)
       (sankey_target)
       (sankey_value))))
+
+==================
+Sankey with Decimal Values
+==================
+
+sankey-beta
+    Input,Process,100.5
+    Process,Output A,50.25
+    Process,Output B,50.25
+
+---
+
+(source_file
+  (diagram_sankey
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))))
+
+==================
+Sankey Energy Flow
+==================
+
+sankey-beta
+    Coal,Electricity,100
+    Gas,Electricity,50
+    Electricity,Homes,80
+    Electricity,Industry,70
+
+---
+
+(source_file
+  (diagram_sankey
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))))
+
+==================
+Sankey with Spaces in Names
+==================
+
+sankey-beta
+    "Power Plant",Grid,1000
+    Grid,"Residential Area",400
+    Grid,"Commercial Zone",600
+
+---
+
+(source_file
+  (diagram_sankey
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))
+    (sankey_stmt_link
+      (sankey_source)
+      (sankey_target)
+      (sankey_value))))

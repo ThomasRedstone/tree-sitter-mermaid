@@ -67,3 +67,75 @@ xychart-beta horizontal
       (max))
     (xychart_stmt_bar)
     (xychart_stmt_line)))
+
+==================
+XY Chart Multiple Data Series
+==================
+
+xychart-beta
+    title "Multi-series"
+    x-axis [Q1, Q2, Q3, Q4]
+    y-axis 0 --> 200
+    bar [100, 120, 90, 150]
+    bar [80, 100, 110, 130]
+    line [90, 110, 100, 140]
+
+---
+
+(source_file
+  (diagram_xychart
+    (xychart_stmt_title
+      (title))
+    (xychart_stmt_x_axis)
+    (xychart_stmt_y_axis
+      (min)
+      (max))
+    (xychart_stmt_bar)
+    (xychart_stmt_bar)
+    (xychart_stmt_line)))
+
+==================
+XY Chart Negative Values
+==================
+
+xychart-beta
+    title "Profit/Loss"
+    x-axis [Jan, Feb, Mar]
+    y-axis -50 --> 50
+    bar [-20, 30, -10]
+    line [-15, 25, -5]
+
+---
+
+(source_file
+  (diagram_xychart
+    (xychart_stmt_title
+      (title))
+    (xychart_stmt_x_axis)
+    (xychart_stmt_y_axis
+      (min)
+      (max))
+    (xychart_stmt_bar)
+    (xychart_stmt_line)))
+
+==================
+XY Chart Decimal Values
+==================
+
+xychart-beta
+    title "Precision Data"
+    x-axis [A, B, C, D]
+    y-axis 0.0 --> 1.0
+    line [0.25, 0.5, 0.75, 0.33]
+
+---
+
+(source_file
+  (diagram_xychart
+    (xychart_stmt_title
+      (title))
+    (xychart_stmt_x_axis)
+    (xychart_stmt_y_axis
+      (min)
+      (max))
+    (xychart_stmt_line)))

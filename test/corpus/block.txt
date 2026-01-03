@@ -81,3 +81,110 @@ block-beta
     (block_stmt_block
       (block_id)
       (block_text))))
+
+==================
+Block Diagram All Shapes
+==================
+
+block-beta
+    a["Square"]
+    b("Round")
+    c(("Circle"))
+    d(["Stadium"])
+    e[["Subroutine"]]
+    f[("Cylinder")]
+
+---
+
+(source_file
+  (diagram_block
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))))
+
+==================
+Block Arrow Types
+==================
+
+block-beta
+    a["A"]
+    b["B"]
+    c["C"]
+    d["D"]
+    a --> b
+    b --- c
+    c ==> d
+
+---
+
+(source_file
+  (diagram_block
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_arrow
+      (block_id)
+      (block_id))
+    (block_stmt_arrow
+      (block_id)
+      (block_id))
+    (block_stmt_arrow
+      (block_id)
+      (block_id))))
+
+==================
+Block with Arrow Labels
+==================
+
+block-beta
+    start["Start"]
+    process["Process"]
+    finish["End"]
+    start -->|"Begin"| process
+    process -->|"Complete"| finish
+
+---
+
+(source_file
+  (diagram_block
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_block
+      (block_id)
+      (block_text))
+    (block_stmt_arrow
+      (block_id)
+      (arrow_text)
+      (block_id))
+    (block_stmt_arrow
+      (block_id)
+      (arrow_text)
+      (block_id))))

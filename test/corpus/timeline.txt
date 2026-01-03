@@ -64,3 +64,74 @@ timeline
     (timeline_stmt_event
       (period)
       (event))))
+
+==================
+Timeline without Title
+==================
+
+timeline
+    2020 : Started project
+    2021 : Released v1.0
+    2022 : Major refactor
+
+---
+
+(source_file
+  (diagram_timeline
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))))
+
+==================
+Timeline with Text Periods
+==================
+
+timeline
+    title Project Phases
+    Planning Phase : Requirements gathered
+    Development : Code written : Tests added
+    Deployment : Released to production
+
+---
+
+(source_file
+  (diagram_timeline
+    (timeline_stmt_title
+      (title))
+    (timeline_stmt_event
+      (period)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event)
+      (event))
+    (timeline_stmt_event
+      (period)
+      (event))))
+
+==================
+Timeline Many Events Per Period
+==================
+
+timeline
+    title Busy Year
+    2023 : Q1 Launch : Q2 Expansion : Q3 Rebrand : Q4 IPO
+
+---
+
+(source_file
+  (diagram_timeline
+    (timeline_stmt_title
+      (title))
+    (timeline_stmt_event
+      (period)
+      (event)
+      (event)
+      (event)
+      (event))))

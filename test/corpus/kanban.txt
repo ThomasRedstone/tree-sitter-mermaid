@@ -77,3 +77,117 @@ todo[To Do]
         (kanban_metadata_pair
           (kanban_metadata_key)
           (kanban_metadata_value))))))
+
+==================
+Kanban Many Columns
+==================
+
+kanban
+backlog[Backlog]
+todo[To Do]
+inprogress[In Progress]
+review[Review]
+done[Done]
+archived[Archived]
+
+---
+
+(source_file
+  (diagram_kanban
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_column
+      (column_id)
+      (column_title))))
+
+==================
+Kanban Multiple Tasks Per Column
+==================
+
+kanban
+todo[To Do]
+    item1[Task 1]
+    item2[Task 2]
+    item3[Task 3]
+done[Done]
+    item4[Task 4]
+    item5[Task 5]
+
+---
+
+(source_file
+  (diagram_kanban
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_task
+      (task_id)
+      (task_title))
+    (kanban_task
+      (task_id)
+      (task_title))
+    (kanban_task
+      (task_id)
+      (task_title))
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_task
+      (task_id)
+      (task_title))
+    (kanban_task
+      (task_id)
+      (task_title))))
+
+==================
+Kanban Complex Metadata
+==================
+
+kanban
+sprint[Current Sprint]
+    feature1[Add login] @{priority: "High", points: 5, assigned: "Bob"}
+    feature2[Fix logout] @{priority: "Medium", points: 3}
+
+---
+
+(source_file
+  (diagram_kanban
+    (kanban_column
+      (column_id)
+      (column_title))
+    (kanban_task
+      (task_id)
+      (task_title)
+      (kanban_metadata
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))))
+    (kanban_task
+      (task_id)
+      (task_title)
+      (kanban_metadata
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))
+        (kanban_metadata_pair
+          (kanban_metadata_key)
+          (kanban_metadata_value))))))

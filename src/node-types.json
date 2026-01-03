@@ -270,7 +270,23 @@
     "named": true,
     "subtypes": [
       {
+        "type": "flow_stmt_class",
+        "named": true
+      },
+      {
+        "type": "flow_stmt_classdef",
+        "named": true
+      },
+      {
         "type": "flow_stmt_direction",
+        "named": true
+      },
+      {
+        "type": "flow_stmt_linkstyle",
+        "named": true
+      },
+      {
+        "type": "flow_stmt_style",
         "named": true
       },
       {
@@ -688,7 +704,27 @@
         "named": true
       },
       {
+        "type": "sequence_stmt_box",
+        "named": true
+      },
+      {
+        "type": "sequence_stmt_break",
+        "named": true
+      },
+      {
+        "type": "sequence_stmt_create",
+        "named": true
+      },
+      {
+        "type": "sequence_stmt_critical",
+        "named": true
+      },
+      {
         "type": "sequence_stmt_deactivate",
+        "named": true
+      },
+      {
+        "type": "sequence_stmt_destroy",
         "named": true
       },
       {
@@ -2079,6 +2115,44 @@
     }
   },
   {
+    "type": "flow_stmt_class",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "class_name",
+          "named": true
+        },
+        {
+          "type": "flow_vertex_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flow_stmt_classdef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "class_name",
+          "named": true
+        },
+        {
+          "type": "style_attrs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "flow_stmt_direction",
     "named": true,
     "fields": {},
@@ -2088,6 +2162,44 @@
       "types": [
         {
           "type": "_flowchart_direction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flow_stmt_linkstyle",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "link_index",
+          "named": true
+        },
+        {
+          "type": "style_attrs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flow_stmt_style",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "flow_vertex_id",
+          "named": true
+        },
+        {
+          "type": "style_attrs",
           "named": true
         }
       ]
@@ -3570,7 +3682,147 @@
     "fields": {}
   },
   {
+    "type": "sequence_stmt_box",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_sequence_stmt",
+          "named": true
+        },
+        {
+          "type": "sequence_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_break",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence_stmt_break_inner",
+          "named": true
+        },
+        {
+          "type": "sequence_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_break_inner",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_sequence_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_create",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence_actor",
+          "named": true
+        },
+        {
+          "type": "sequence_alias",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_critical",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence_stmt_critical_inner",
+          "named": true
+        },
+        {
+          "type": "sequence_stmt_critical_option",
+          "named": true
+        },
+        {
+          "type": "sequence_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_critical_inner",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_sequence_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_critical_option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_sequence_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "sequence_stmt_deactivate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence_actor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_stmt_destroy",
     "named": true,
     "fields": {},
     "children": {
@@ -4828,11 +5080,19 @@
     "named": true
   },
   {
+    "type": "box",
+    "named": false
+  },
+  {
     "type": "br",
     "named": false
   },
   {
     "type": "branch",
+    "named": false
+  },
+  {
+    "type": "break",
     "named": false
   },
   {
@@ -4928,6 +5188,14 @@
     "named": false
   },
   {
+    "type": "create",
+    "named": false
+  },
+  {
+    "type": "critical",
+    "named": false
+  },
+  {
     "type": "dateformat",
     "named": false
   },
@@ -4945,6 +5213,10 @@
   },
   {
     "type": "designConstraint",
+    "named": false
+  },
+  {
+    "type": "destroy",
     "named": false
   },
   {
@@ -4973,11 +5245,11 @@
   },
   {
     "type": "docref",
-    "named": true
+    "named": false
   },
   {
     "type": "docref",
-    "named": false
+    "named": true
   },
   {
     "type": "dotted_arrow",
@@ -5128,6 +5400,14 @@
     "named": false
   },
   {
+    "type": "linkStyle",
+    "named": false
+  },
+  {
+    "type": "link_index",
+    "named": true
+  },
+  {
     "type": "links",
     "named": false
   },
@@ -5169,6 +5449,10 @@
   },
   {
     "type": "opt",
+    "named": false
+  },
+  {
+    "type": "option",
     "named": false
   },
   {
@@ -5374,6 +5658,10 @@
   {
     "type": "style",
     "named": false
+  },
+  {
+    "type": "style_attrs",
+    "named": true
   },
   {
     "type": "subgraph",

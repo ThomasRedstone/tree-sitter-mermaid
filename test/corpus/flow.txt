@@ -655,3 +655,48 @@ flowchart LR
       (flow_node
         (flow_vertex
           (flow_vertex_id))))))
+
+
+==========================
+Styling
+==========================
+
+flowchart LR
+    A-->B-->C
+    classDef green fill:#9f6,stroke:#333
+    class A,B green
+    style C fill:#f9f,stroke:#333
+    linkStyle 0 stroke:#ff3
+
+---
+
+(source_file
+  (diagram_flow
+    (flowchart_direction_lr)
+    (flow_stmt_vertice
+      (flow_node
+        (flow_vertex
+          (flow_vertex_id)))
+      (flow_link_simplelink
+        (flow_link_arrow))
+      (flow_node
+        (flow_vertex
+          (flow_vertex_id)))
+      (flow_link_simplelink
+        (flow_link_arrow))
+      (flow_node
+        (flow_vertex
+          (flow_vertex_id))))
+    (flow_stmt_classdef
+      (class_name)
+      (style_attrs))
+    (flow_stmt_class
+      (flow_vertex_id)
+      (flow_vertex_id)
+      (class_name))
+    (flow_stmt_style
+      (flow_vertex_id)
+      (style_attrs))
+    (flow_stmt_linkstyle
+      (link_index)
+      (style_attrs))))

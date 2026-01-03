@@ -63,3 +63,80 @@ packet-beta
     (packet_stmt_field
       (packet_plus_bits)
       (packet_field_name))))
+
+==================
+Packet Mixed Ranges and Bits
+==================
+
+packet-beta
+    0-3: "Version"
+    4-7: "IHL"
+    +8: "Type of Service"
+    16-31: "Total Length"
+
+---
+
+(source_file
+  (diagram_packet
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_plus_bits)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))))
+
+==================
+Packet Single Bit Fields
+==================
+
+packet-beta
+    0: "Bit 0"
+    1: "Bit 1"
+    2: "Bit 2"
+    3-7: "Reserved"
+
+---
+
+(source_file
+  (diagram_packet
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))))
+
+==================
+Packet Large Ranges
+==================
+
+packet-beta
+    0-31: "Header"
+    32-127: "Payload"
+    128-159: "Checksum"
+
+---
+
+(source_file
+  (diagram_packet
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))
+    (packet_stmt_field
+      (packet_range)
+      (packet_field_name))))

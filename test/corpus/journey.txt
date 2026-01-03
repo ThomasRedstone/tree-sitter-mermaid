@@ -58,3 +58,71 @@ journey
     (journey_stmt_task
       (task_name)
       (actors))))
+
+==================
+Journey with Edge Scores
+==================
+
+journey
+    title Score extremes
+    section Testing
+    Worst experience: 0: Tester
+    Best experience: 5: Tester
+
+---
+
+(source_file
+  (diagram_journey
+    (journey_stmt_title
+      (title))
+    (journey_stmt_section
+      (section_name))
+    (journey_stmt_task
+      (task_name)
+      (actors))
+    (journey_stmt_task
+      (task_name)
+      (actors))))
+
+==================
+Journey without Title
+==================
+
+journey
+    section Daily routine
+    Wake up: 2: Me
+    Have coffee: 5: Me
+
+---
+
+(source_file
+  (diagram_journey
+    (journey_stmt_section
+      (section_name))
+    (journey_stmt_task
+      (task_name)
+      (actors))
+    (journey_stmt_task
+      (task_name)
+      (actors))))
+
+==================
+Journey with Many Actors
+==================
+
+journey
+    title Team collaboration
+    section Sprint planning
+    Discuss requirements: 4: Dev, QA, PM, Designer, Stakeholder
+
+---
+
+(source_file
+  (diagram_journey
+    (journey_stmt_title
+      (title))
+    (journey_stmt_section
+      (section_name))
+    (journey_stmt_task
+      (task_name)
+      (actors))))

@@ -308,6 +308,11 @@ module.exports = grammar({
             $.sequence_stmt_opt,
             $.sequence_stmt_alt,
             $.sequence_stmt_par,
+            $.sequence_stmt_critical,
+            $.sequence_stmt_break,
+            $.sequence_stmt_box,
+            $.sequence_stmt_create,
+            $.sequence_stmt_destroy,
         ),
 
         _sequence_participant_type: $ => choice(
@@ -398,6 +403,37 @@ module.exports = grammar({
             kwd("end")
         ),
 
+        sequence_stmt_critical: $ => seq(
+            kwd("critical"), $.sequence_text, $._newline,
+            optional(alias($._sequence_subdocument, $.sequence_stmt_critical_inner)),
+            repeat(seq(
+                kwd("option"), $.sequence_text, $._newline,
+                optional(alias($._sequence_subdocument, $.sequence_stmt_critical_option))
+            )),
+            kwd("end")
+        ),
+
+        sequence_stmt_break: $ => seq(
+            kwd("break"), $.sequence_text, $._newline,
+            optional(alias($._sequence_subdocument, $.sequence_stmt_break_inner)),
+            kwd("end")
+        ),
+
+        sequence_stmt_box: $ => seq(
+            kwd("box"), optional($.sequence_text), $._newline,
+            repeat(choice($._sequence_stmt, $._newline)),
+            kwd("end")
+        ),
+
+        sequence_stmt_create: $ => seq(
+            kwd("create"), $._sequence_participant_type, $.sequence_actor,
+            optional(seq(kwd("as"), alias($._sequence_rest_text, $.sequence_alias))),
+            $._newline,
+        ),
+
+        sequence_stmt_destroy: $ => seq(
+            kwd("destroy"), $.sequence_actor, $._newline,
+        ),
 
         /// class diagram
         diagram_class: $ => seq(
@@ -679,10 +715,10 @@ module.exports = grammar({
 
         _flow_stmt: $ => choice(
             $.flow_stmt_vertice,
-            // $.flow_stmt_style,
-            // $.flow_stmt_linkstyle,
-            // $.flow_stmt_classdef,
-            // $.flow_stmt_class,
+            $.flow_stmt_style,
+            $.flow_stmt_linkstyle,
+            $.flow_stmt_classdef,
+            $.flow_stmt_class,
             $.flow_stmt_subgraph,
             $.flow_stmt_direction,
         ),
@@ -762,6 +798,31 @@ module.exports = grammar({
         ),
         flow_stmt_subgraph_inner: $ => repeat1(seq($._flow_stmt, choice($._newline, ";"))),
         flow_vertex_text: $ => repeat1($._alpha_num_token),
+
+        // Styling statements
+        flow_stmt_style: $ => seq(
+            kwd("style"),
+            alias($._alpha_num_token, $.flow_vertex_id),
+            alias(/[^;\n]+/, $.style_attrs),
+        ),
+
+        flow_stmt_linkstyle: $ => seq(
+            kwd("linkStyle"),
+            alias(/\d+|default/, $.link_index),
+            alias(/[^;\n]+/, $.style_attrs),
+        ),
+
+        flow_stmt_classdef: $ => seq(
+            kwd("classDef"),
+            alias($._alpha_num_token, $.class_name),
+            alias(/[^;\n]+/, $.style_attrs),
+        ),
+
+        flow_stmt_class: $ => seq(
+            kwd("class"),
+            sep(alias($._alpha_num_token, $.flow_vertex_id), ","),
+            alias($._alpha_num_token, $.class_name),
+        ),
 
         /// ER diagram
         diagram_er: $ => seq(

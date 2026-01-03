@@ -93,3 +93,88 @@ gitGraph
       (gitgraph_branch_name))
     (gitgraph_stmt_cherrypick
       (gitgraph_commit_id))))
+
+==================
+GitGraph All Commit Types
+==================
+
+gitGraph
+    commit id: "normal" type: NORMAL
+    commit id: "reverse" type: REVERSE
+    commit id: "highlight" type: HIGHLIGHT
+
+---
+
+(source_file
+  (diagram_gitgraph
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id)
+      (commit_type))
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id)
+      (commit_type))
+    (gitgraph_stmt_commit
+      (gitgraph_commit_id)
+      (commit_type))))
+
+==================
+GitGraph Multiple Branches
+==================
+
+gitGraph
+    commit
+    branch feature-a
+    branch feature-b
+    checkout feature-a
+    commit
+    checkout feature-b
+    commit
+    checkout main
+    merge feature-a
+    merge feature-b
+
+---
+
+(source_file
+  (diagram_gitgraph
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_merge
+      (gitgraph_branch_name))
+    (gitgraph_stmt_merge
+      (gitgraph_branch_name))))
+
+==================
+GitGraph with Branch Order
+==================
+
+gitGraph
+    commit
+    branch develop order: 1
+    branch feature order: 2
+    checkout develop
+    commit
+
+---
+
+(source_file
+  (diagram_gitgraph
+    (gitgraph_stmt_commit)
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_branch
+      (gitgraph_branch_name))
+    (gitgraph_stmt_checkout
+      (gitgraph_branch_name))
+    (gitgraph_stmt_commit)))

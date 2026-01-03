@@ -75,3 +75,132 @@ quadrantChart
       (point_name))
     (quadrant_stmt_point
       (point_name))))
+
+==================
+Quadrant Many Points
+==================
+
+quadrantChart
+    title Product Portfolio
+    x-axis Low Market Share --> High Market Share
+    y-axis Low Growth --> High Growth
+    quadrant-1 Stars
+    quadrant-2 Question Marks
+    quadrant-3 Dogs
+    quadrant-4 Cash Cows
+    Product A: [0.1, 0.9]
+    Product B: [0.9, 0.9]
+    Product C: [0.1, 0.1]
+    Product D: [0.9, 0.1]
+    Product E: [0.5, 0.5]
+
+---
+
+(source_file
+  (diagram_quadrant
+    (quadrant_stmt_title
+      (title))
+    (quadrant_stmt_x_axis
+      (axis_left)
+      (axis_right))
+    (quadrant_stmt_y_axis
+      (axis_bottom)
+      (axis_top))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))))
+
+==================
+Quadrant without Title
+==================
+
+quadrantChart
+    x-axis Cost --> Value
+    y-axis Risk --> Reward
+    quadrant-1 High Value Low Risk
+    quadrant-2 High Value High Risk
+    quadrant-3 Low Value High Risk
+    quadrant-4 Low Value Low Risk
+    Option 1: [0.7, 0.8]
+
+---
+
+(source_file
+  (diagram_quadrant
+    (quadrant_stmt_x_axis
+      (axis_left)
+      (axis_right))
+    (quadrant_stmt_y_axis
+      (axis_bottom)
+      (axis_top))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_point
+      (point_name))))
+
+==================
+Quadrant Edge Coordinates
+==================
+
+quadrantChart
+    title Boundary Test
+    x-axis Left --> Right
+    y-axis Bottom --> Top
+    quadrant-1 Q1
+    quadrant-2 Q2
+    quadrant-3 Q3
+    quadrant-4 Q4
+    Corner TL: [0.0, 1.0]
+    Corner TR: [1.0, 1.0]
+    Corner BL: [0.0, 0.0]
+    Corner BR: [1.0, 0.0]
+
+---
+
+(source_file
+  (diagram_quadrant
+    (quadrant_stmt_title
+      (title))
+    (quadrant_stmt_x_axis
+      (axis_left)
+      (axis_right))
+    (quadrant_stmt_y_axis
+      (axis_bottom)
+      (axis_top))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_quadrant
+      (quadrant_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))
+    (quadrant_stmt_point
+      (point_name))))

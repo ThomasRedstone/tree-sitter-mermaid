@@ -77,3 +77,119 @@ C4Context
         (alias)
         (label)
         (descr)))))
+
+==================
+C4 Component Diagram
+==================
+
+C4Component
+    Component(api, "API", "Node.js", "REST API")
+    Component(service, "Service", "Java", "Business logic")
+    ComponentDb(cache, "Cache", "Redis", "Session store")
+    Rel(api, service, "Calls")
+    Rel(service, cache, "Reads/Writes")
+
+---
+
+(source_file
+  (diagram_c4
+    (c4_component
+      (alias)
+      (label)
+      (arg)
+      (arg))
+    (c4_component
+      (alias)
+      (label)
+      (arg)
+      (arg))
+    (c4_component
+      (alias)
+      (label)
+      (arg)
+      (arg))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))))
+
+==================
+C4 Multiple Boundaries
+==================
+
+C4Context
+    Person(admin, "Admin", "System administrator")
+    System_Boundary(internal, "Internal Systems") {
+        System(auth, "Auth Service", "Authentication")
+        System(core, "Core Service", "Business logic")
+    }
+    System_Boundary(external, "External") {
+        System_Ext(payment, "Payment Gateway", "Handles payments")
+    }
+
+---
+
+(source_file
+  (diagram_c4
+    (c4_person
+      (alias)
+      (label)
+      (descr))
+    (c4_stmt_boundary
+      (alias)
+      (label)
+      (c4_system
+        (alias)
+        (label)
+        (descr))
+      (c4_system
+        (alias)
+        (label)
+        (descr)))
+    (c4_stmt_boundary
+      (alias)
+      (label)
+      (c4_system
+        (alias)
+        (label)
+        (descr)))))
+
+==================
+C4 Bidirectional Relations
+==================
+
+C4Context
+    System(a, "System A", "First system")
+    System(b, "System B", "Second system")
+    Rel(a, b, "Sends data")
+    Rel(b, a, "Returns response")
+    BiRel(a, b, "Syncs")
+
+---
+
+(source_file
+  (diagram_c4
+    (c4_system
+      (alias)
+      (label)
+      (descr))
+    (c4_system
+      (alias)
+      (label)
+      (descr))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))
+    (c4_stmt_rel
+      (from)
+      (to)
+      (label))))
